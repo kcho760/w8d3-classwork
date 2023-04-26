@@ -9,10 +9,10 @@ class Clock {
       // 3. Call printTime. const time = 
       this.printTime();
       // 4. Schedule the tick at 1 second intervals.
-      if(this.hours < 59) {
-      setTimeout(() => {
-        _tick()
-      },1000)}
+      
+      setInterval(
+        this._tick.bind(this)
+      ,1000)
     }
   
     printTime() {
@@ -25,20 +25,20 @@ class Clock {
     _tick() {
       // 1. Increment the time by one second.
 
-        this.seconds + 1;
+        this.seconds += 1;
 
-        if(this.second = 60) {
-          this.minutes + 1;
+        if(this.seconds === 60) {
+          this.minutes += 1;
           this.second = 0;
         };
 
-        if(this.minutes = 60) {
-          this.hours + 1;
+        if(this.minutes === 60) {
+          this.hours += 1;
           this.minutes = 0;
         };
 
       // 2. Call printTime.
-      this.printTime;
+      this.printTime();
     }
   }
   
