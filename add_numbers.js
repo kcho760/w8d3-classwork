@@ -5,26 +5,19 @@ const rl = readline.createInterface({
 });
 
 
-    // let response = rl.question('What do you think of JavaScript? ', answer => answer);
-
-    // if (response) {
-    //     console.log(`Thank you for your valuable feedback: ${response}`)
-    //     asking = false;
-    //     rl.close();
-    // }
-
-
 function addNumbers(sum, numsLeft, completionCallback) {
 
     if ( numsLeft > 0 ) {
-        let answer = rl.question('What is the number? ', answer => answer);
+        let answer = rl.question('What is the number? ', function(answer){
         let parsed = parseInt(answer);
         sum += parsed;
         console.log(sum);
-        addNumbers(sum, numsLeft-1, sum => console.log(`Total Sum: ${sum}`))
-        
-    }
-rl.close();
+        addNumbers(sum, numsLeft-1, completionCallback) //this was called using the completionCallback function we declared up there
+        });
+    }else{ //we need an else statement to close out the final loop
+        completionCallback(sum);
+        rl.close(); //this goes here to represent our base case
+    };
     
 }
 
