@@ -27,7 +27,7 @@ class Clock {
 
         this.seconds += 1;
 
-        if(this.seconds === 60) {
+        if(this.seconds >= 60) {
           this.minutes += 1;
           this.second = 0;
         };

@@ -17,18 +17,14 @@ const rl = readline.createInterface({
 function addNumbers(sum, numsLeft, completionCallback) {
 
     if ( numsLeft > 0 ) {
-
-        let total_sum = 0;
-        total_sum += sum;
-
-        rl.question('What do you think of JavaScript? ', answer => answer);
+        let answer = rl.question('What is the number? ', answer => answer);
         let parsed = parseInt(answer);
         sum += parsed;
         console.log(sum);
-        addNumbers(total_sum.numsLeft-1, sum => console.log(`Total Sum: ${sum}`))
-
+        addNumbers(sum, numsLeft-1, sum => console.log(`Total Sum: ${sum}`))
+        
     }
-
+rl.close();
     
 }
 
