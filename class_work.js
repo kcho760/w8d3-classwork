@@ -6,21 +6,39 @@ class Clock {
       this.hours = currentDate.getHours();
       this.minutes = currentDate.getMinutes();
       this.seconds = currentDate.getSeconds();
-      // 3. Call printTime.
-      let time = printTime.call(currentDate, this.hours, this.minutes, this.seconds)
+      // 3. Call printTime. const time = 
+      this.printTime();
       // 4. Schedule the tick at 1 second intervals.
+      if(this.hours < 59) {
+      setTimeout(() => {
+        _tick()
+      },1000)}
     }
   
     printTime() {
       // Format the time in HH:MM:SS
-      const formattedTime = `${this.hours},${this.minutes},${this.seconds}`;
+      const formattedTime = `${this.hours}:${this.minutes}:${this.seconds}`;
       // Use console.log to print it.
       console.log(formattedTime);
     }
   
     _tick() {
       // 1. Increment the time by one second.
+
+        this.seconds + 1;
+
+        if(this.second = 60) {
+          this.minutes + 1;
+          this.second = 0;
+        };
+
+        if(this.minutes = 60) {
+          this.hours + 1;
+          this.minutes = 0;
+        };
+
       // 2. Call printTime.
+      this.printTime;
     }
   }
   
